@@ -5,7 +5,7 @@ import {Image, View, StyleSheet, TouchableOpacity} from 'react-native';
 import Texto from "../../../components/Texto";
 
 
-export default function Detalhes ({titulo, nomeVendedor, logoVendedor, desc, preco, botao}){
+export default function Detalhes ({titulo, nomeVendedor, logoVendedor, desc, preco, botao, navigation}){
 
 return <>
             <Texto style={estilos.titulo}> {titulo}</Texto>
@@ -16,7 +16,7 @@ return <>
             <Texto style={estilos.desc}> {desc}</Texto>
             <Texto style={estilos.preco}> {preco}</Texto>
 
-            <TouchableOpacity style={estilos.botao} onPress={()=>{}}>
+            <TouchableOpacity style={estilos.botao} onPress={()=>{navigation.navigate('Finalizar')}}>
             <Texto style={estilos.textoBotao}>{botao}</Texto>
             </TouchableOpacity>
         </>

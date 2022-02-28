@@ -1,8 +1,12 @@
-import { View, StatusBar, SafeAreaView } from 'react-native';
+
 import Carrinho from './src/screens/Carrinho';
+import Finalizar from './src/screens/Finalizar';
 import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
-import mock from './src/mocks/carrinho';
+
 import AppLoading from 'expo-app-loading';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 export default function App() {
 
@@ -16,11 +20,15 @@ export default function App() {
     return <AppLoading/>
   }
 
+  const Stack = createNativeStackNavigator();
+
   return (
-    <SafeAreaView>
-      <Carrinho {...mock}></Carrinho>
-      <StatusBar/>
-    </SafeAreaView>
+    <NavigationContainer>
+    <Stack.Navigator initialRouteName="Carrinho">
+      <Stack.Screen name="Carrinho" component={Carrinho} />
+      <Stack.Screen name="Finalizar" component={Finalizar} />
+    </Stack.Navigator>
+  </NavigationContainer>
   );
 }
 
